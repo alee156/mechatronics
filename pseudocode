@@ -1,0 +1,13 @@
+// Simulator approximates in-game behavior with a proprietary
+// simulation engine.
+type Simulator interface {
+  // ...
+
+  // Route returns the optimal path for a given player between
+  // two points, factoring in abilities and summoner skills.
+  Route(begin, end Point, player *Player) (*Path, error)
+}
+
+// TraversalTime returns the time required to execute the path,
+// measured in in-game time.
+func (p *Path) TraversalTime() (time.Duration, error) { // ...
